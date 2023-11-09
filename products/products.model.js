@@ -2,12 +2,12 @@ const products = [
   {
     id: 'redshoe',
     description: 'Red Shoe',
-    proce: 42.12,
+    price: 42.12,
   },
   {
     id: 'bluejean',
     description: 'Blue Jeans',
-    proce: 55.55,
+    price: 55.55,
   },
 ];
 
@@ -15,6 +15,13 @@ function getAllProducts() {
   return products;
 }
 
+function getAllProductsByPrice(min, max) {
+  return products.filter((product) => {
+    return product.price >= min && product.price <= max;
+  });
+}
+
 module.exports = {
   getAllProducts,
+  getAllProductsByPrice,
 };
