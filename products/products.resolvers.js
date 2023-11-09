@@ -4,7 +4,7 @@ module.exports = {
   Query: {
     products: () => {
       console.log('Getting the products...');
-      return productsModel.getAllProducts;
+      return productsModel.getAllProducts();
     },
     productsByPrice: (_, args) => {
       return productsModel.getAllProductsByPrice(args.min, args.max);
@@ -16,6 +16,13 @@ module.exports = {
   Mutation: {
     addNewProduct: (_, args) => {
       return productsModel.addNewProduct(args.id, args.description, args.price);
+    },
+    addNewProductReview: (_, args) => {
+      return productsModel.addNewProductReview(
+        args.id,
+        args.rating,
+        args.comment
+      );
     },
   },
 };
