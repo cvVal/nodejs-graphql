@@ -1,5 +1,4 @@
 const express = require('express');
-const { createYoga } = require('graphql-yoga');
 const { loadFilesSync } = require('@graphql-tools/load-files');
 const { makeExecutableSchema } = require('@graphql-tools/schema');
 
@@ -18,13 +17,7 @@ const schema = makeExecutableSchema({
 
 const app = express();
 
-app.use(
-  '/graphql',
-  createYoga({
-    schema: schema,
-    graphiql: true,
-  })
-);
+app.use('/graphql', () => {});
 
 app.listen(3000, () => {
   console.log(`Running GraphQL server...`);
